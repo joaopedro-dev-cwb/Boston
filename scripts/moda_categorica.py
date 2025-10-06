@@ -39,7 +39,7 @@ def analyze_categorical_mode():
         # Distribuição
         distribuicao = df[col].value_counts().sort_index()
         print(f"  Distribuição:")
-        for valor, freq in distribuicao.head(5).items():  # Top 5
+        for valor, freq in distribuicao.items():  # Top 5
             perc = (freq / len(df) * 100)
             print(f"    {valor}: {freq} ({perc:.1f}%)")
         
