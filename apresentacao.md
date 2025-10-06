@@ -28,21 +28,39 @@ theme: default
 
 ---
 
-## **2. Análise de Concentração e Distribuição - Colunas Numéricas**
+## **2. Análise Completa de Concentração e Distribuição**
 
-**Script:** `concentracao_distribuicao.py` - Análise de **todas as 14 variáveis**
+**Script:** `concentracao_distribuicao.py` - **TODAS as 14 variáveis numéricas**
 
-**Estatísticas Principais:**
-- **MEDV** (Preço): CV=40.8%, Assimetria=1.11 (Assimétrica à direita)
-- **RM** (Quartos): CV=11.2%, Assimetria=0.40 (Simétrica)
-- **LSTAT** (Status): CV=55.4%, Assimetria=0.95 (Assimétrica à direita)
-- **CRIM** (Crime): CV=246.3%, Assimetria=5.32 (Extremamente assimétrica)
+**Cobertura Expandida:**
+- **TODAS:** CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT, MEDV
+- **Alta Variabilidade (CV>50%):** CHAS (373%), CRIM (246%), ZN (214%), RAD (91%), INDUS (61%), DIS (56%), LSTAT (55%)
+- **Baixa Variabilidade (CV<20%):** RM (11.2%), PTRATIO (11.7%)
+- **Simétricas:** RM, INDUS | **Assimétricas à Direita:** Maioria
 
-**Gráfico:** Histogramas com KDE mostrando distribuições e medidas de tendência central.
+**Visualização:** Grade 4x4 com histogramas de **todas as variáveis** incluindo média e mediana.
 
 ---
 
-## **3. Análise da Moda - Colunas Categóricas**
+## **3. Análise Executiva Completa - Visão 360°**
+
+**Script:** `analise.py` - **Resumo executivo expandido de todas as variáveis**
+
+**Estatísticas Executivas:**
+- **Dataset:** 506 imóveis, 14 variáveis numéricas, 120 valores ausentes tratados
+- **Preço (MEDV):** Média $22.53k, Mediana $21.20k, CV 40.8%
+- **Melhor Preditor:** LSTAT (r=-0.723) - Status socioeconômico
+
+**Correlações Categorizadas:**
+- **Fortes (|r|>0.6):** LSTAT (-0.723), RM (0.695)
+- **Moderadas (0.3-0.6):** 9 variáveis
+- **Fracas (≤0.3):** DIS, CHAS
+
+**Total Outliers:** 420 registros (83.0%) - Indica alta heterogeneidade urbana
+
+---
+
+## **4. Análise da Moda - Colunas Categóricas**
 
 **Script:** `moda_categorica.py` - Identificação automática de variáveis categóricas
 
@@ -60,7 +78,7 @@ theme: default
 
 ---
 
-## **4. Análise de Correlação - Pares de Colunas Numéricas**
+## **5. Análise de Correlação - Pares de Colunas Numéricas**
 
 **Scripts:** `correlacao_geral.py` + `correlacao.py` - Análise de **todos os pares**
 
@@ -76,7 +94,7 @@ theme: default
 
 ---
 
-## **5. Análise de Quartis com Boxplots**
+## **6. Análise de Quartis com Boxplots**
 
 **Script:** `analise_quartis.py` - Análise de dispersão das **6 principais variáveis**
 
@@ -93,7 +111,7 @@ theme: default
 
 ---
 
-## **6. Hipótese Comparativa 1: Quartos vs Preço**
+## **7. Hipótese Comparativa 1: Quartos vs Preço**
 
 **Hipótese:** Mais quartos (`RM`) = Maior preço (`MEDV`)?
 
@@ -110,7 +128,7 @@ theme: default
 
 ---
 
-## **7. Hipótese Comparativa 2: Status Socioeconômico vs Preço**
+## **8. Hipótese Comparativa 2: Status Socioeconômico vs Preço**
 
 **Hipótese:** Melhor status (`LSTAT` baixo) = Maior preço (`MEDV`)?
 
@@ -128,7 +146,7 @@ theme: default
 
 ---
 
-## **8. Conclusões - Critérios Atendidos**
+## **9. Conclusões - Critérios Atendidos**
 
 **✅ Concentração/Distribuição:** Todas as 14 colunas numéricas analisadas
 - CV, assimetria e formato de distribuição identificados
@@ -147,17 +165,18 @@ theme: default
 
 ---
 
-## **9. Resumo Final**
+## **10. Resumo Final - Insights Expandidos**
 
-**Principais Descobertas:**
+**Descobertas Expandidas:**
 
-1. **Status socioeconômico (LSTAT)** é o preditor mais forte (r=-0.723)
-2. **Criminalidade (CRIM)** tem maior variabilidade (CV=246.3%)
-3. **Acessibilidade a rio (CHAS)** é extremamente concentrada (93.3%)
-4. **Número de quartos (RM)** tem distribuição mais simétrica
-5. **Correlações sistêmicas** entre variáveis urbanas (RAD-TAX, NOX-DIS)
+1. **ANÁLISE EXECUTIVA:** 83% dos registros têm outliers - alta heterogeneidade urbana
+2. **Status socioeconômico (LSTAT)** é o preditor mais forte (r=-0.723)
+3. **VARIABILIDADE EXTREMA:** CHAS (373%), CRIM (246%), ZN (214%)
+4. **ESTABILIDADE:** Apenas RM (11.2%) e PTRATIO (11.7%) são estáveis
+5. **COBERTURA TOTAL:** 14/14 variáveis numéricas completamente analisadas
+6. **CORRELAÇÕES CATEGORIZADAS:** 2 fortes, 9 moderadas, 2 fracas
 
-**Metodologia:** Scripts modulares, análises numéricas detalhadas, gráficos específicos para cada critério, testes de hipótese com significância estatística.
+**Metodologia Expandida:** Análise executiva 360°, cobertura completa de todas as variáveis, visualizações expandidas (grade 4x4), classificações inteligentes por variabilidade e correlação.
 
 1.  **Fatores Determinantes:** O **status socioeconômico da população (`LSTAT`)** e o **número de quartos (`RM`)** são os fatores mais decisivos para o preço de um imóvel em Boston.
 

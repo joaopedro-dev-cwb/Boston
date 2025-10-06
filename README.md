@@ -56,19 +56,21 @@ Boston/
 
 ## 📈 Scripts e Funcionalidades
 
-### 1. **analise.py** - Resumo Executivo (67 linhas)
-- Carregamento e limpeza automática dos dados
-- Estatísticas descritivas do preço (MEDV)  
-- Top 5 correlações com preço
-- Detecção automática de outliers
-- Identificação do melhor preditor
+### 1. **analise.py** - Análise Executiva Completa (90+ linhas)
+- **VISÃO GERAL:** 14 variáveis numéricas, 506 registros
+- **ESTATÍSTICAS EXPANDIDAS:** Média, mediana, desvio, CV do preço (MEDV)
+- **CORRELAÇÕES CATEGORIZADAS:** Fortes (|r|>0.6), Moderadas (0.3-0.6), Fracas (≤0.3)
+- **OUTLIERS COMPLETOS:** Análise de todas as 14 variáveis com ranking
+- **VARIABILIDADE:** Classificação por CV (alta >50%, baixa <20%)
+- **RESUMO EXECUTIVO:** Métricas consolidadas para tomada de decisão
 
-### 2. **concentracao_distribuicao.py** - Análise de Distribuições
+### 2. **concentracao_distribuicao.py** - Análise Completa de Distribuições
 **📊 CRITÉRIO:** Análise de concentração e distribuição de TODAS as colunas numéricas
-- **Cobertura:** 14 variáveis numéricas completas
-- **Métricas:** Média, Desvio, CV, Assimetria para cada variável
-- **Gráficos:** Histogramas com KDE das principais variáveis
-- **Interpretação:** Classificação automática (Simétrica/Assimétrica)
+- **COBERTURA TOTAL:** 14/14 variáveis numéricas analisadas
+- **ESTATÍSTICAS:** Média, Desvio, CV, Assimetria para cada variável
+- **VISUALIZAÇÃO EXPANDIDA:** Grade 4x4 com histogramas de todas as variáveis
+- **RESUMO INTELIGENTE:** Alta variabilidade (CV>50%), distribuição simétrica, assimetria
+- **INTERPRETAÇÃO:** Classificação automática com explicações detalhadas
 
 ### 3. **moda_categorica.py** - Variáveis Categóricas  
 **📊 CRITÉRIO:** Análise da moda das colunas categóricas
@@ -150,11 +152,19 @@ code apresentacao.md
 
 ## 📊 Principais Resultados Obtidos
 
-### ✅ Análise de Distribuições (Todas as Colunas Numéricas)
+### ✅ Análise Executiva Expandida
+- **MELHOR PREDITOR:** LSTAT (r=-0.723) - Status socioeconômico
+- **TOTAL OUTLIERS:** 420 registros (83.0% têm outliers em alguma variável)
+- **ALTA VARIABILIDADE:** 7 variáveis (CHAS: 373%, CRIM: 246%, ZN: 214%)
+- **BAIXA VARIABILIDADE:** 2 variáveis (RM: 11.2%, PTRATIO: 11.7%)
+- **CORRELAÇÕES FORTES:** LSTAT-MEDV (-0.723), RM-MEDV (0.695)
+
+### ✅ Análise Completa de Distribuições (14/14 Variáveis)
 - **MEDV:** CV=40.8%, Assimetria=1.11 (Assimétrica à direita)
 - **RM:** CV=11.2%, Assimetria=0.40 (Simétrica - mais estável)  
 - **LSTAT:** CV=55.4%, Assimetria=0.95 (Alta variabilidade social)
 - **CRIM:** CV=246.3%, Assimetria=5.32 (Extremamente assimétrica)
+- **TODAS AS DEMAIS:** ZN, INDUS, CHAS, NOX, AGE, DIS, RAD, TAX, PTRATIO, B
 
 ### ✅ Análise de Moda (Colunas Categóricas)  
 - **CHAS:** 93.3% sem acesso ao rio (extremamente concentrada)

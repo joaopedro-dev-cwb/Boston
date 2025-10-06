@@ -23,13 +23,10 @@ def analyze_distributions():
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     print(f"Variáveis analisadas: {len(numeric_cols)}")
     
-    # Análise das principais variáveis
-    main_vars = ['MEDV', 'RM', 'LSTAT', 'CRIM', 'NOX']
-    
-    print(f"\nESTATÍSTICAS DAS PRINCIPAIS VARIÁVEIS:")
+    print(f"\nESTATÍSTICAS DE TODAS AS VARIÁVEIS NUMÉRICAS:")
     print("-" * 50)
     
-    for col in main_vars:
+    for col in numeric_cols:
         mean_val = df[col].mean()
         std_val = df[col].std()
         skewness = df[col].skew()
@@ -50,28 +47,34 @@ def analyze_distributions():
     # Visualização
     print(f"\n📊 GERANDO HISTOGRAMAS...")
     
-    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+    fig, axes = plt.subplots(4, 4, figsize=(20, 16))
     axes = axes.ravel()
     
-    for i, col in enumerate(main_vars):
+    for i, col in enumerate(numeric_cols):
         axes[i].hist(df[col], bins=25, alpha=0.7, color='skyblue', edgecolor='black')
         axes[i].axvline(df[col].mean(), color='red', linestyle='--', linewidth=2, label='Média')
         axes[i].axvline(df[col].median(), color='green', linestyle='--', linewidth=2, label='Mediana')
-        axes[i].set_title(f'{col}')
-        axes[i].set_ylabel('Frequência')
-        axes[i].legend()
+        axes[i].set_title(f'{col}', fontsize=10)
+        axes[i].set_ylabel('Frequência', fontsize=9)
+        axes[i].legend(fontsize=8)
         axes[i].grid(True, alpha=0.3)
     
-    if len(main_vars) < 6:
-        axes[-1].remove()
+    # Remover subplots extras (se houver menos de 16 variáveis)
+    for i in range(len(numeric_cols), 16):
+        axes[i].remove()
     
     plt.tight_layout()
     plt.show()
     
     # Resumo
-    high_cv = [col for col in main_vars if (df[col].std()/df[col].mean()*100) > 50]
+    high_cv = [col for col in numeric_cols if (df[col].std()/df[col].mean()*100) > 50]
+    symmetric_vars = [col for col in numeric_cols if abs(df[col].skew()) < 0.5]
+    right_skewed = [col for col in numeric_cols if df[col].skew() > 0.5]
+    
     print(f"\nRESUMO:")
     print(f"  ✓ Alta variabilidade (CV>50%): {high_cv}")
+    print(f"  ✓ Distribuição simétrica: {symmetric_vars}")
+    print(f"  ✓ Assimetria à direita: {right_skewed}")
     print("="*60)
 
 if __name__ == "__main__":
