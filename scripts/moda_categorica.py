@@ -5,6 +5,7 @@ Análise da Moda de Variáveis Categóricas
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -14,7 +15,9 @@ def analyze_categorical_mode():
     print("="*60)
     
     # Carregar dados
-    df = pd.read_csv('HousingData.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(script_dir, '..', 'HousingData.csv')
+    df = pd.read_csv(csv_path)
     
     # Tratar valores ausentes
     for col in df.columns:

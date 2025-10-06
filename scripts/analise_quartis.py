@@ -5,6 +5,7 @@ Análise de Quartis - Boston Housing Dataset
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -14,7 +15,9 @@ def analyze_quartiles():
     print("="*60)
     
     # Carregar e tratar dados
-    df = pd.read_csv('HousingData.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(script_dir, '..', 'HousingData.csv')
+    df = pd.read_csv(csv_path)
     for col in df.columns:
         if df[col].isnull().sum() > 0:
             df[col].fillna(df[col].median(), inplace=True)

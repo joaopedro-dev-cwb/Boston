@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -20,7 +21,9 @@ def main():
     print("="*70)
     
     # Carregar e tratar dados
-    df = pd.read_csv('../HousingData.csv')
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(script_dir, '..', 'HousingData.csv')
+    df = pd.read_csv(csv_path)
     print(f"Dataset: {df.shape[0]} imóveis, {df.shape[1]} variáveis")
     
     # Tratar valores ausentes
@@ -104,11 +107,21 @@ def main():
     # Resumo executivo final
     best_predictor = correlations.iloc[1:].abs().idxmax()
     best_corr = correlations[best_predictor]
-    total_outliers = sum(count for _, count, _ in outlier_summary)
+    
+    # CORREÇÃO: Calcular registros únicos que são outliers em pelo menos uma variável
+    outlier_mask = pd.Series(False, index=df.index)
+    for col in numeric_cols:
+        Q1, Q3 = df[col].quantile(0.25), df[col].quantile(0.75)
+        IQR = Q3 - Q1
+        col_outliers = (df[col] < Q1-1.5*IQR) | (df[col] > Q3+1.5*IQR)
+        outlier_mask = outlier_mask | col_outliers
+    
+    unique_outliers = outlier_mask.sum()
+    outlier_percentage = (unique_outliers / len(df)) * 100
     
     print(f"\nRESUMO EXECUTIVO:")
     print(f"  ✓ Melhor preditor: {best_predictor} (r={best_corr:.3f})")
-    print(f"  ✓ Total de outliers: {total_outliers} ({total_outliers/len(df)*100:.1f}%)")
+    print(f"  ✓ Registros com outliers: {unique_outliers} ({outlier_percentage:.1f}%)")
     print(f"  ✓ Variáveis de alta variabilidade: {len(high_var)}")
     print(f"  ✓ Variáveis de baixa variabilidade: {len(low_var)}")
     print(f"  ✓ Correlações fortes (|r|>0.6): {len(strong_corr)}")
