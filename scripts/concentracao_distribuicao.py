@@ -15,7 +15,7 @@ def analyze_distributions():
     print("="*60)
     
     # Carregar e tratar dados
-    df = pd.read_csv('HousingData.csv')
+    df = pd.read_csv('../HousingData.csv')
     for col in df.columns:
         if df[col].isnull().sum() > 0:
             df[col].fillna(df[col].median(), inplace=True)
