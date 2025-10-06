@@ -80,7 +80,7 @@ theme: default
 
 ## **5. Análise de Correlação - Pares de Colunas Numéricas**
 
-**Scripts:** `correlacao_geral.py` + `correlacao.py` - Análise de **todos os pares**
+**Script:** `correlacao.py` - Análise completa de **todos os pares**
 
 **Matriz Completa:** 14x14 variáveis = **91 pares únicos** analisados
 
@@ -155,7 +155,7 @@ theme: default
 - Frequências e interpretações fornecidas  
 
 **✅ Correlação de Pares:** 91 pares analisados
-- 25 correlações fortes identificadas, matriz completa gerada
+- Top 5 correlações mais fortes identificadas, matriz completa gerada
 
 **✅ Quartis:** Boxplots com IQR e outliers
 - Dispersão e valores extremos quantificados
@@ -176,7 +176,7 @@ theme: default
 5. **COBERTURA TOTAL:** 14/14 variáveis numéricas completamente analisadas
 6. **CORRELAÇÕES CATEGORIZADAS:** 2 fortes, 9 moderadas, 2 fracas
 
-**Metodologia Expandida:** Análise executiva 360°, cobertura completa de todas as variáveis, visualizações expandidas (grade 4x4), classificações inteligentes por variabilidade e correlação.
+**Metodologia Simplificada:** Análise executiva 360°, cobertura completa de todas as variáveis, visualizações expandidas (grade 4x4), classificações inteligentes, estrutura modular otimizada.
 
 1.  **Fatores Determinantes:** O **status socioeconômico da população (`LSTAT`)** e o **número de quartos (`RM`)** são os fatores mais decisivos para o preço de um imóvel em Boston.
 

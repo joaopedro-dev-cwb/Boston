@@ -43,8 +43,7 @@ Boston/
 │   ├── analise.py              # Resumo executivo e diagnóstico
 │   ├── concentracao_distribuicao.py  # Análise completa de distribuições
 │   ├── moda_categorica.py      # Análise de variáveis categóricas (CHAS, RAD)
-│   ├── correlacao.py           # Matriz de correlação básica
-│   ├── correlacao_geral.py     # Análise avançada de correlações
+│   ├── correlacao.py           # Análise completa de correlações
 │   ├── analise_quartis.py      # Análise de quartis com boxplots
 │   └── hipoteses/
 │       ├── MEDV_RM.py          # Hipótese: Quartos vs Valor
@@ -78,12 +77,13 @@ Boston/
 - **RAD:** Moda = 24, Frequência = 26.1% (dispersa, 9 categorias)
 - **Gráficos:** Barras com percentuais para visualização
 
-### 4. **correlacao.py** + **correlacao_geral.py** - Correlações
+### 4. **correlacao.py** - Análise Completa de Correlações
 **📊 CRITÉRIO:** Análise de correlação entre TODOS os pares de colunas numéricas
 - **Matriz completa:** 14x14 = 91 pares únicos analisados
-- **Correlações fortes:** 25 identificadas (|r| ≥ 0.5)
+- **Correlações com MEDV:** Ranking completo de todos os preditores
+- **Top correlações gerais:** 5 correlações mais fortes identificadas
 - **Significância:** Todas com p-valor < 0.001
-- **Gráficos:** Heatmaps de correlação completos
+- **Gráficos:** Heatmap de correlação completo com anotações
 
 ### 5. **analise_quartis.py** - Análise de Quartis (70 linhas)
 **📊 CRITÉRIO:** Gráficos para análise de quartis
@@ -132,7 +132,6 @@ python scripts/concentracao_distribuicao.py
 python scripts/moda_categorica.py
 
 # 4. Correlação (TODOS os pares)
-python scripts/correlacao_geral.py
 python scripts/correlacao.py
 
 # 5. Quartis (boxplots)
@@ -197,9 +196,9 @@ code apresentacao.md
 
 ### ✅ **CRITÉRIO 3:** Correlação (Todos os Pares)
 - **Status:** 100% ATENDIDO  
-- **Scripts:** `correlacao_geral.py` + `correlacao.py`
+- **Script:** `correlacao.py`
 - **Cobertura:** 91 pares únicos (14x14 matriz)
-- **Relatórios:** Valor, direção, força, significância
+- **Relatórios:** Valor, direção, força, significância, ranking completo
 
 ### ✅ **CRITÉRIO 4:** Gráficos de Quartis
 - **Status:** 100% ATENDIDO
@@ -239,7 +238,7 @@ code apresentacao.md
 
 ## 📊 Arquitetura de Qualidade
 
-- **8 scripts especializados** (<80 linhas cada)
+- **7 scripts especializados** (<80 linhas cada)
 - **13 tipos de gráficos** diferentes
 - **100% cobertura** dos critérios solicitados  
 - **3 testes de hipóteses** formais
