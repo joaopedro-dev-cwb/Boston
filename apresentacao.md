@@ -56,7 +56,7 @@ theme: default
 - **Moderadas (0.3-0.6):** 9 variáveis
 - **Fracas (≤0.3):** DIS, CHAS
 
-**Total Outliers:** 420 registros (83.0%) - Indica alta heterogeneidade urbana
+**Total Outliers:** 289 registros (57.1%) - Indica heterogeneidade urbana moderada
 
 ---
 
@@ -169,7 +169,7 @@ theme: default
 
 **Descobertas Expandidas:**
 
-1. **ANÁLISE EXECUTIVA:** 83% dos registros têm outliers - alta heterogeneidade urbana
+1. **ANÁLISE EXECUTIVA:** 57.1% dos registros têm outliers - heterogeneidade urbana moderada
 2. **Status socioeconômico (LSTAT)** é o preditor mais forte (r=-0.723)
 3. **VARIABILIDADE EXTREMA:** CHAS (373%), CRIM (246%), ZN (214%)
 4. **ESTABILIDADE:** Apenas RM (11.2%) e PTRATIO (11.7%) são estáveis
