@@ -146,7 +146,7 @@ theme: default
 
 ---
 
-## **9. Conclusões - Critérios Atendidos**
+## **9. Conclusões**
 
 **✅ Concentração/Distribuição:** Todas as 14 colunas numéricas analisadas
 - CV, assimetria e formato de distribuição identificados
