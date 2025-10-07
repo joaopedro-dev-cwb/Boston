@@ -6,7 +6,23 @@
 **Data:** 06 de Outubro de 2025  
 **Curso:** Análise e Desenvolvimento de Sistemas - 4º Semestre
 
-Este projeto implementa uma análise estatística rigorosa do dataset Boston Housing, atendendo aos seguintes critérios específicos:
+Este## 💡 Principais Descobertas
+
+1. **LSTAT (Status Socioeconômico)**: Preditor mais forte (r=-0.737) - Melhor hipótese
+2. **RM (Número de Quartos)**: Segundo preditor (r=0.695)  
+3. **PTRATIO (Educação)**: Terceiro preditor (r=-0.508)
+4. **CRIM (Criminalidade)**: Maior variabilidade (CV=246.3%)
+5. **CHAS (Acesso ao Rio)**: Extremamente concentrada (93.3%)
+6. **Correlações Sistêmicas**: Variáveis urbanas agrupadas (RAD-TAX, NOX-DIS)o implementa uma an## ✅ Status do Projeto
+
+**✅ PROJETO COMPLETO E FUNCIONAL**
+
+- **7 scripts especializados** implementados
+- **3 hipóteses estatísticas** testadas e validadas
+- **Análise estatística completa** do dataset Boston Housing
+- **Visualizações profissionais** com transparência padronizada
+- **Metodologia rigorosa** com testes de significância
+- **Documentação completa** com apresentação em slidestística rigorosa do dataset Boston Housing, atendendo aos seguintes critérios específicos:
 
 ✅ **Análise de concentração e distribuição** de todas as colunas numéricas  
 ✅ **Análise da moda** das colunas categóricas  
@@ -48,7 +64,7 @@ Boston/
 │   └── hipoteses/
 │       ├── MEDV_RM.py          # Hipótese: Quartos vs Valor
 │       ├── MEDV_PTRATIO.py     # Hipótese: Educação vs Valor
-│       └── MEDV_RAD.py         # Hipótese: Acessibilidade vs Valor
+│       └── MEDV_LSTAT.py       # Hipótese: Status Socioeconômico vs Valor
 ├── apresentacao.md             # Apresentação em slides (Marp)
 └── README.md                   # Este arquivo
 ```
@@ -107,11 +123,11 @@ Boston/
 - **Resultado:** Educação de qualidade aumenta valor em 52%
 - **Gráfico:** Scatter plot com 3 níveis educacionais
 
-#### **MEDV_RAD.py** - Acessibilidade vs Valor
-- **Hipótese:** r = -0.382, p < 0.001 (correlação moderada negativa)
-- **Comparação:** Alta acessibilidade (RAD≤5) vs Baixa (RAD≥20)  
-- **Resultado:** Paradoxo - alta acessibilidade reduz valor em 33%
-- **Gráfico:** Scatter plot com explicação do fenômeno urbano
+#### **MEDV_LSTAT.py** - Status Socioeconômico vs Valor
+- **Hipótese:** r = -0.737, p < 0.001 (correlação forte negativa)
+- **Comparação:** Alto status (<10% LSTAT) vs Baixo status (>20% LSTAT)
+- **Resultado:** Melhor status aumenta valor em 78%
+- **Gráfico:** Scatter plot com linearidade - melhor preditor de MEDV
 
 ## 🚀 Como Executar
 
@@ -140,7 +156,7 @@ python scripts/analise_quartis.py
 # 6. Hipóteses comparativas
 python scripts/hipoteses/MEDV_RM.py
 python scripts/hipoteses/MEDV_PTRATIO.py  
-python scripts/hipoteses/MEDV_RAD.py
+python scripts/hipoteses/MEDV_LSTAT.py
 ```
 
 ### Visualizar Apresentação
@@ -180,37 +196,7 @@ code apresentacao.md
 - **Mais Outliers:** CRIM (81 outliers = 16.0%)
 - **Mais Estável:** NOX (0 outliers)
 
-## 🎯 Atendimento aos Critérios
 
-### ✅ **CRITÉRIO 1:** Concentração e Distribuição (Numéricas)
-- **Status:** 100% ATENDIDO
-- **Script:** `concentracao_distribuicao.py`
-- **Cobertura:** 14/14 variáveis numéricas
-- **Relatórios:** Média, Desvio, CV, Assimetria para todas
-
-### ✅ **CRITÉRIO 2:** Moda (Categóricas)  
-- **Status:** 100% ATENDIDO
-- **Script:** `moda_categorica.py` 
-- **Variáveis:** CHAS e RAD identificadas automaticamente
-- **Relatórios:** Moda, frequência, percentuais, interpretação
-
-### ✅ **CRITÉRIO 3:** Correlação (Todos os Pares)
-- **Status:** 100% ATENDIDO  
-- **Script:** `correlacao.py`
-- **Cobertura:** 91 pares únicos (14x14 matriz)
-- **Relatórios:** Valor, direção, força, significância, ranking completo
-
-### ✅ **CRITÉRIO 4:** Gráficos de Quartis
-- **Status:** 100% ATENDIDO
-- **Script:** `analise_quartis.py`
-- **Gráficos:** Boxplots 2x3 das principais variáveis
-- **Relatórios:** Q1, Q2, Q3, IQR, outliers
-
-### ✅ **CRITÉRIO 5:** Hipóteses Comparativas  
-- **Status:** 100% ATENDIDO
-- **Scripts:** 3 testes específicos na pasta `hipoteses/`
-- **Testes:** Correlação de Pearson com p < 0.001
-- **Comparações:** Categorização por faixas de valor
 
 ## 📈 Gráficos Gerados (13 tipos)
 
