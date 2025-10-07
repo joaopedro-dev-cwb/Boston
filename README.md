@@ -240,9 +240,7 @@ code apresentacao.md
 - **SciPy**: Testes estatísticos e significância
 - **Marp**: Apresentação de slides em Markdown
 
-## � Status do Projeto
-
-**✅ TODOS OS CRITÉRIOS 100% ATENDIDOS**
+**DADOS DE ANÁLISE**
 
 - Análise de concentração/distribuição: **14/14 variáveis** ✅
 - Análise de moda categórica: **2/2 variáveis** ✅  
